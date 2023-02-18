@@ -10,9 +10,9 @@ const resetBtnEl: HTMLButtonElement | null = document.querySelector(".reset-butt
 
 
 const winningCombos: number[][] = [
-  [0, 1, 2],[3, 4, 5],[6, 7, 8],
-  [0, 3, 6],[1, 4, 7],[2, 5, 8],
-  [0, 4, 8],[2, 4, 6]
+  [0, 1, 2], [3, 4, 5], [6, 7, 8],
+  [0, 3, 6], [1, 4, 7], [2, 5, 8],
+  [0, 4, 8], [2, 4, 6]
 ];
 
 /*---------------------------- Variables (state) ----------------------------*/
@@ -40,8 +40,9 @@ function init(): void {
   render();
 }
 
-function render( ); void {
+function render(); void {
   updateBoard();
+  updateMessage();
 }
 
 function updateBoard(): void {
@@ -59,3 +60,12 @@ function updateBoard(): void {
   });
 }
 
+function updateMessage(); void {
+    if(winner === false && tie === false) {
+    messageEl!.innerText = `It is player ${turn === 1 ? "X" : "O"}'s turn`;
+  } else if (winner === false $$ tie === true) {
+    messageEl!.innerText = "It's a tie";
+  } else {
+    messageEl!.innerText = `Player ${turn === 1 ? 'X' : 'O'} Win's!`;
+  }
+}

@@ -40,6 +40,9 @@ function init(): void {
   render();
 }
 
+function render( ); void {
+  updateBoard();
+}
 
 function updateBoard(): void {
   board.forEach((square: number | null, idx: number) => {
@@ -55,3 +58,4 @@ function updateBoard(): void {
     }
   });
 }
+

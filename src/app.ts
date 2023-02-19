@@ -69,3 +69,35 @@ function updateMessage(); void {
     messageEl!.innerText = `Player ${turn === 1 ? 'X' : 'O'} Win's!`;
   }
 }
+
+function handleClick(evt: MouseEvent): void {
+  const sqrIdx: number = parseInt((evt.target as HTMLElement).id.slice(2));
+  if (board[sqrIdx] !== null) return;
+  if (winner === true) return;
+  placePiece(sqrIdx);
+  checkForTie();
+  checkForWinner();
+  switchPlayerTurn();
+  render();
+}
+
+function placePiece(idx: number): void {
+  board[idx] = turn;
+}
+
+function checkForTie(): void {
+  if (board.includes(null)) return;
+  tie = true;
+}
+
+function checkForWinner(): void {
+  winningCombos.forEach((combo: number[]) => {
+    if (Math.abs(board[combo[0]]! + board[combo[1]]! + board[combo[2]]!) === 3) {
+      winner = true;
+    }
+  });
+}
+
+function switchPlayerTurn(): void {
+  if (!winner) turn *= -1;
+}

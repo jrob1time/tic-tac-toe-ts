@@ -60,11 +60,11 @@ function updateBoard(): void {
   });
 }
 
-function updateMessage(); void {
-    if(winner === false && tie === false) {
-    messageEl!.innerText = `It is player ${turn === 1 ? "X" : "O"}'s turn`;
-  } else if (winner === false $$ tie === true) {
-    messageEl!.innerText = "It's a tie";
+function updateMessage(): void {
+  if (winner === false && tie === false) {
+    messageEl!.innerText = `It is player ${turn === 1 ? 'X' : 'O'}'s turn`;
+  } else if (winner === false && tie === true) {
+    messageEl!.innerText = "It's a tie!";
   } else {
     messageEl!.innerText = `Player ${turn === 1 ? 'X' : 'O'} Win's!`;
   }

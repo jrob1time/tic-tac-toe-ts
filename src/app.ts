@@ -40,9 +40,9 @@ function init(): void {
   render();
 }
 
-function render(); void {
+function render(): void {
   updateBoard();
-  updateMessage();
+  updateMessage()
 }
 
 function updateBoard(): void {
